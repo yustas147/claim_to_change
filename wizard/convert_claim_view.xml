@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <record id="show_convert_claim_action" model="ir.actions.act_window">           
+             <field name="name">Convert Claim to CR</field>
+             <field name="res_model">convert.claim.change</field>
+             <field name="view_type">form</field>                                
+             <field name="view_mode">form</field>                                
+             <field name="target">new</field>                                    
+        </record>
+
+        <record model="ir.ui.view" id="show_convert_claim">
+            <field name="name">show.convert.claim.wizard.form</field>                                    
+            <field name="model">convert.claim.change</field>
+            <field name="arch" type="xml">                                          
+                <form string="Convert Claim to CR">
+                    <label for="change_category_id" />
+                    <field name="change_category_id" />
+                    <label for="project_id" />
+                    <field name="project_id" />
+                    <footer>
+                        <button name="create_change" string="Create Change Request" class="oe_highlight" type="object"/>
+                        or
+                        <button special="cancel" string="Close" class="oe_link"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="claim_to_change_inherits_changes_origins_inherits_change_form_view">
+            <field name="name">claim.to.change.inherits.change_orig</field>
+            <!--<field name="name">claim.to.change.inherits.changes.origins.inherits.change.form.view</field>-->
+            <field name="model">change.management.change</field>
+            <field name="inherit_id" ref="changes_origins.changes_origins_inherits_change_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[@string='Origins info']" position="inside">
+                    <group string="Origins">
+                        <field name='claim_id'/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+        
+    </data>
+</openerp>

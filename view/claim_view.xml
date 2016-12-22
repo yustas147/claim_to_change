@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="view_crm_claim_convert_change_form">
+            <field name="name">crm.claim.form</field>
+            <field name="model">crm.claim</field>
+            <field name="inherit_id" ref="crm_claim.crm_case_claims_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='stage_id']" position="before">
+                    <button name="%(claim_to_change.show_convert_claim_action)d" type="action" string="Convert to Change Request" groups="base.group_user"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>
