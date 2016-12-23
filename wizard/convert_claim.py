@@ -45,6 +45,7 @@ class ConvertClaimChange(osv.TransientModel):
             'project_id': wizard.project_id.id,
             'user_id': uid,
             'claim_id': claim_brw[0].id,
+            'change_owner_id': claim_brw[0].user_id.id,
             "change_category_id": wizard.change_category_id.id
         }
 

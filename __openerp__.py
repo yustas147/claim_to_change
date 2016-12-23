@@ -14,6 +14,7 @@
     'depends': [
         'base',
         'crm_claim',
+        'changes_origins',
         'change_management'
     ],
     'demo': [],
