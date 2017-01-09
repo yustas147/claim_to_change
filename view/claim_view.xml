@@ -9,6 +9,11 @@
                 <xpath expr="//field[@name='stage_id']" position="before">
                     <button name="%(claim_to_change.show_convert_claim_action)d" type="action" string="Convert to Change Request" groups="base.group_user"/>
                 </xpath>
+                <xpath expr="//notebook/page[@string='Claim Description']" position="after">
+                    <page string="Child changes">
+                        <field name="change_ids"/>
+                    </page>
+                </xpath>
             </field>
         </record>
     </data>
